@@ -38,12 +38,18 @@ SlackBot.prototype.connect = function() {
 	var data = {
 		url: 'https://slack.com/api/rtm.start',
 		form: params
-	};  
+	};
+	console.log(data);
 	request.post(data, (function postResponse(error, response, body){
 		if(error){
 			console.log("POST ERROR: "+error);
 		}else{
-			this.login(JSON.parse(body));
+			var response_data = JSON.parse(body);
+			
+			if ( response_data.hasOwnProperty('error') )
+				console.log("ERROR: "+response_data.error);
+			else
+				this.login(response_data);
 		}
 	}).bind(this));
 }
@@ -246,7 +252,7 @@ SlackBot.prototype.wsConnect = function() {
 			 ***********************/
 			else if(message_parts[0].match(/quit/i)){
 				if( games.hasOwnProperty(sender_obj.id) ){
-					var game = games[sender_obj.id]
+					var game = games[sender_obj.id];
 					var player_id_2 = game.player_id_2;
 					
 					delete games[sender_obj.id];
