@@ -1,0 +1,14 @@
+{
+  "name": "gamebot",
+  "version": "1.0.0",
+  "description": "Connect Four for Slack",
+  "main": "ws_server.js",
+  "author": "Bryce Fitzsimons",
+  "dependencies": {
+    "extend": "^3.0.0",
+    "request": "^2.79.0",
+    "websocket": "^1.0.23",
+    "ws": "^1.1.1"
+  },
+  "license": "UNLICENSED"
+}
