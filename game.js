@@ -87,7 +87,7 @@ Game.prototype.checkForWin = function(player_no, row, col){
 	
 	// check diagonal down (\)    ...pretty cool algorithm I think
 	r = 0;
-	c = (row-1)-(col-1);
+	c = -(row-1)+(col-1);
 	for(var i=0; i<6; i++){
 		if ( (r+i)>=0 && (r+i)<6 && (c+i)>=0 && (c+i)<7 ){
 			if ( this.board[r+i][c+i]==player_no )
