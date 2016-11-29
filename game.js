@@ -98,6 +98,7 @@ Game.prototype.checkForWin = function(player_no, row, col){
 				return 2;
 		}
 	}
+	count = 0;
 	
 	// check diagonal up (/)
 	r = 0;
